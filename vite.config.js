@@ -5,6 +5,9 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base:'./',
   plugins: [react()],
+  server: {
+    host: '0.0.0.0',
+  },
   build: {
     // 在 outDir 中生成 manifest.json
     manifest: true,
