@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import Square from './Square'
 // squares 存储所有步骤[o,x,null, o, .....]
 export default function Board({ xIsNext, squares, onPlay }) {
