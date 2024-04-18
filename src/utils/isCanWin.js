@@ -35,60 +35,35 @@ function setCount(getX, getY) {
   }
   return count;
 }
+function winBackgammon(arr) {
+  return arr.reduce((prev, item) => prev + setCount(...item), 0) > 5;
+}
 /** 水平 */
 function horizontal() {
-  return setCount(
-    (argX) => argX + SPACE,
-    (argY) => argY
-  ) +
-    setCount(
-      (argX) => argX - SPACE,
-      (argY) => argY
-    ) >
-    5
-    ? true
-    : false;
+  return winBackgammon([
+    [(argX) => argX + SPACE, (argY) => argY],
+    [(argX) => argX - SPACE, (argY) => argY],
+  ]);
 }
 
 /** 竖线 */
 function vertical() {
-  return setCount(
-    (argX) => argX,
-    (argY) => argY + SPACE
-  ) +
-    setCount(
-      (argX) => argX,
-      (argY) => argY - SPACE
-    ) >
-    5
-    ? true
-    : false;
+  return winBackgammon([
+    [(argX) => argX, (argY) => argY + SPACE],
+    [(argX) => argX, (argY) => argY - SPACE],
+  ]);
 }
 /** 对角线 */
 function diagonal() {
-  return setCount(
-    (argX) => argX + SPACE,
-    (argY) => argY - SPACE
-  ) +
-    setCount(
-      (argX) => argX - SPACE,
-      (argY) => argY + SPACE
-    ) >
-    5
-    ? true
-    : false;
+  return winBackgammon([
+    [(argX) => argX + SPACE, (argY) => argY - SPACE],
+    [(argX) => argX - SPACE, (argY) => argY + SPACE],
+  ]);
 }
 /** 反对角线 */
 function oppositeDiagonal() {
-  return setCount(
-    (argX) => argX - SPACE,
-    (argY) => argY - SPACE
-  ) +
-    setCount(
-      (argX) => argX + SPACE,
-      (argY) => argY + SPACE
-    ) >
-    5
-    ? true
-    : false;
+  return winBackgammon([
+    [(argX) => argX - SPACE, (argY) => argY - SPACE],
+    [(argX) => argX + SPACE, (argY) => argY + SPACE],
+  ]);
 }

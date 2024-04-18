@@ -21,7 +21,7 @@ export default function Backgammon() {
       console.log(winArr);
       status = `恭喜你${historyStack.peek().color}，获胜了！`;
     }
-    return result === "win" ? true : false;
+    return result === "win";
   }
   function drawLine(ctx, moveTo, lineTo) {
     ctx.beginPath();
@@ -52,7 +52,6 @@ export default function Backgammon() {
     }
     historyStack.push(regretStack.pop());
   }
-
   function drawChess(point, color) {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
