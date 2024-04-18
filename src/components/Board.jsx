@@ -1,26 +1,26 @@
 /* eslint-disable react/prop-types */
-import Square from "./Square";
+import Square from './Square'
 // squares 存储所有步骤[o,x,null, o, .....]
 export default function Board({ xIsNext, squares, onPlay }) {
   function handleClick(i) {
-    console.log(squares);
+    console.log(squares)
     if (calculateWinner(squares) || squares[i]) {
-      return;
+      return
     }
-    const nextSquares = squares.slice();
+    const nextSquares = squares.slice()
     if (xIsNext) {
-      nextSquares[i] = "X";
+      nextSquares[i] = 'X'
     } else {
-      nextSquares[i] = "O";
+      nextSquares[i] = 'O'
     }
-    onPlay(nextSquares);
+    onPlay(nextSquares)
   }
-  const winner = calculateWinner(squares);
-  let status;
+  const winner = calculateWinner(squares)
+  let status
   if (winner) {
-    status = "Winner: " + winner;
+    status = 'Winner: ' + winner
   } else {
-    status = "Next player: " + (xIsNext ? "X" : "O");
+    status = 'Next player: ' + (xIsNext ? 'X' : 'O')
   }
 
   return (
@@ -38,7 +38,7 @@ export default function Board({ xIsNext, squares, onPlay }) {
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
     </>
-  );
+  )
 }
 
 function calculateWinner(squares) {
@@ -51,12 +51,12 @@ function calculateWinner(squares) {
     [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6],
-  ];
+  ]
   for (let i = 0; i < lines.length; i++) {
-    const [a, b, c] = lines[i];
+    const [a, b, c] = lines[i]
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return squares[a]
     }
   }
-  return null;
+  return null
 }

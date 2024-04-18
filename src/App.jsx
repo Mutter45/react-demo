@@ -1,7 +1,7 @@
-import { Routes, Route, Link } from "react-router-dom";
-import Home from "./views/Home";
-import TicTacToe from "./views/TicTacToe";
-import Backgammon from "./views/Backgammon";
+import { Routes, Route, Link } from 'react-router-dom'
+import Home from './views/Home'
+import TicTacToe from './views/TicTacToe'
+import Backgammon from './views/Backgammon'
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
         </Routes>
       </div>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

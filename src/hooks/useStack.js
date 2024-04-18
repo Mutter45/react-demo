@@ -1,43 +1,43 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 export default function useStack(initialItems = []) {
-  const [items, setItems] = useState(initialItems);
+  const [items, setItems] = useState(initialItems)
 
   function push(item) {
-    setItems([...items, item]);
+    setItems([...items, item])
   }
 
   function pop() {
     if (isEmpty()) {
-      return "Stack is empty";
+      return 'Stack is empty'
     }
-    const poppedItem = items[items.length - 1];
-    setItems(items.slice(0, items.length - 1));
-    return poppedItem;
+    const poppedItem = items[items.length - 1]
+    setItems(items.slice(0, items.length - 1))
+    return poppedItem
   }
 
   function peek() {
     if (isEmpty()) {
-      return "Stack is empty";
+      return 'Stack is empty'
     }
-    return items[items.length - 1];
+    return items[items.length - 1]
   }
 
   function isEmpty() {
-    return items.length === 0;
+    return items.length === 0
   }
 
   function size() {
-    return items.length;
+    return items.length
   }
 
   function clear() {
-    setItems([]);
+    setItems([])
   }
 
   function getItems() {
-    return items;
+    return items
   }
 
-  return { push, pop, peek, isEmpty, size, clear, getItems };
+  return { push, pop, peek, isEmpty, size, clear, getItems }
 }

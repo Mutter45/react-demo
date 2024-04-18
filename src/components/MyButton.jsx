@@ -4,5 +4,5 @@ export default function MyButton({ count, onClick }) {
     <>
       <button onClick={onClick}>Clicked {count} times</button>
     </>
-  );
+  )
 }
