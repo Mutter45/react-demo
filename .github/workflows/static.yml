@@ -2,9 +2,14 @@
 name: Deploy static content to Pages
 
 on:
-  # 仅在推送到默认分支时运行。
+  # 推送到默认分支时运行。
   push:
     branches: ['main']
+  # 运行工作流的请求有 pull_request 和 workflow_dispatch 事件类型
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - '**/*.js'
 
   # 这个选项可以使你手动在 Action tab 页面触发工作流
   workflow_dispatch:
@@ -27,6 +32,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    if: contains(github.event.head_commit.message, 'build')
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
