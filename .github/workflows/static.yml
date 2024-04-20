@@ -8,8 +8,6 @@ on:
   # 运行工作流的请求有 pull_request 和 workflow_dispatch 事件类型
   pull_request:
     types: [opened, synchronize]
-    paths:
-      - '**/*.js'
 
   # 这个选项可以使你手动在 Action tab 页面触发工作流
   workflow_dispatch:
